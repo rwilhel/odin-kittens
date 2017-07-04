@@ -11,6 +11,10 @@ class KittensController < ApplicationController
     @kitten = Kitten.new
   end
 
+  def edit
+    @kitten = Kitten.find(params[:id])
+  end
+
   def create
     @kitten = Kitten.new(kitten_params)
 
@@ -25,7 +29,7 @@ class KittensController < ApplicationController
     @kitten = Kitten.find(params[:id])
 
     if @kitten.update(kitten_params)
-      redirect_to @article
+      redirect_to @kitten
     else
       render 'edit'
     end
