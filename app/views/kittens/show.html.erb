@@ -6,3 +6,5 @@ Age: <%= @kitten.age %>
 Cuteness: <%= @kitten.cuteness %>
 <br>
 Softness: <%= @kitten.softness %>
+<br>
+<%= link_to "Delete", kitten_path(@kitten.id), method: :delete %>

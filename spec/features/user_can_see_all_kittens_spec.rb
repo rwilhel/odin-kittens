@@ -11,4 +11,17 @@ RSpec.describe "user can view kittens index page" do
     expect(page).to have_content(kitten1.name)
     expect(page).to have_content(kitten2.name)
   end
+
+  it "can delete a kitten from the index page" do
+    kitten1 = create(:kitten)
+
+    visit kittens_path
+
+    expect(page).to have_content(kitten1.name)
+
+    click_on "Delete"
+
+    expect(current_path).to eq("/kittens")
+    expect(page).to_not have_content(kitten1.name)
+  end
 end
