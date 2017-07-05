@@ -23,5 +23,6 @@ RSpec.describe "user can view kitten show page" do
     click_on "Delete"
 
     expect(current_path).to eq("/kittens")
+    expect(page).to have_content("Bye bye, kitten!")
   end
 end
